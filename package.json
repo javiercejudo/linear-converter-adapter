@@ -1,6 +1,6 @@
 {
   "name": "linear-converter-adapter",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "linear-converter adapter for linear-arbitrary-precision",
   "main": "src/linear-converter-adapter.js",
   "scripts": {
