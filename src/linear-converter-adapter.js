@@ -2,7 +2,7 @@
 
 'use strict';
 
-var lc = require('linear-converter');
+var lc = require('linear-converter')(require('floating-adapter'));
 
 module.exports = {
   getInstance: getInstance,

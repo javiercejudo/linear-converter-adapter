@@ -30,19 +30,19 @@ describe('linear arbitrary precision with big.js', function() {
 
   describe('operations', function() {
     it('should have a plus method', function() {
-      new Decimal('0.1').plus(new Decimal('0.2')).valueOf().should.be.exactly(0.3);
+      new Decimal('0.1').plus(new Decimal('0.2')).valueOf().should.be.exactly(0.1 + 0.2);
     });
 
     it('should have a minus method', function() {
-      new Decimal('0.3').minus(new Decimal('0.1')).valueOf().should.be.exactly(0.2);
+      new Decimal('0.3').minus(new Decimal('0.1')).valueOf().should.be.exactly(0.3 - 0.1);
     });
 
     it('should have a times method', function() {
-      new Decimal('0.6').times(new Decimal('3')).valueOf().should.be.exactly(1.8);
+      new Decimal('0.6').times(new Decimal('3')).valueOf().should.be.exactly(0.6 * 3);
     });
 
     it('should have a div method', function() {
-      new Decimal('0.3').div(new Decimal('0.2')).valueOf().should.be.exactly(1.5);
+      new Decimal('0.3').div(new Decimal('0.2')).valueOf().should.be.exactly(0.3 / 0.2);
     });
   });
 
