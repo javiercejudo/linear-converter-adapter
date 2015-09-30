@@ -1,6 +1,6 @@
 # linear-converter-adapter
 
-[![Build Status](https://travis-ci.org/javiercejudo/linear-converter-adapter.svg)](https://travis-ci.org/javiercejudo/linear-converter-adapter)
+[![Build Status](https://travis-ci.org/javiercejudo/linear-converter-adapter.svg?branch=master)](https://travis-ci.org/javiercejudo/linear-converter-adapter)
 [![Coverage Status](https://coveralls.io/repos/javiercejudo/linear-converter-adapter/badge.svg?branch=master)](https://coveralls.io/r/javiercejudo/linear-converter-adapter?branch=master)
 [![Code Climate](https://codeclimate.com/github/javiercejudo/linear-converter-adapter/badges/gpa.svg)](https://codeclimate.com/github/javiercejudo/linear-converter-adapter)
 
