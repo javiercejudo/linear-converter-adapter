@@ -31,6 +31,6 @@
   },
   "dependencies": {
     "floating-adapter": "1.2.0",
-    "linear-converter": "3.1.0"
+    "linear-converter": "7.0.1"
   }
 }
