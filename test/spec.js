@@ -7,7 +7,7 @@ require('should');
 var decimalFactory = require('linear-arbitrary-precision');
 var adapter = require('../src/linear-converter-adapter');
 
-describe('linear arbitrary precision with big.js', function() {
+describe('linear arbitrary precision with linear-converter', function() {
   var Decimal = decimalFactory(adapter);
 
   describe('precision', function() {
@@ -15,15 +15,11 @@ describe('linear arbitrary precision with big.js', function() {
 
     it('should be able to get the current precision', function() {
       Decimal.getPrecision().should.have.type('number');
-
-      new Decimal('1').div(new Decimal('3')).toString().should.be.exactly('0.3333333333333333');
     });
 
     it('should be able to set the current precision', function() {
       Decimal.setPrecision(42);
       Decimal.getPrecision().should.be.exactly(42);
-      new Decimal('1').div(new Decimal('3')).toString().should.be.exactly('0.3333333333333333');
-
       Decimal.setPrecision(initialPrecision);
     });
   });
@@ -48,31 +44,27 @@ describe('linear arbitrary precision with big.js', function() {
 
   describe('toString, valueOf and JSON', function() {
     it('should be able to return a string representation', function() {
-      var decimalThird = new Decimal('1').div(new Decimal('3'));
+      var decimalOne = new Decimal('1');
 
-      decimalThird.toString().should.be.exactly('0.3333333333333333')
-        .and.exactly(decimalThird.toJSON());
+      decimalOne.toString().should.be.exactly('1')
+        .and.exactly(decimalOne.toJSON());
 
-      decimalThird.valueOf().should.be.exactly(1/3);
+      decimalOne.valueOf().should.be.exactly(1);
     });
 
     it('should play nicely with Number()', function() {
-      var decimalThird = new Decimal('1').div(new Decimal('3'));
+      var decimalOne = new Decimal('1');
 
-      Number(decimalThird).should.be.exactly(1/3);
+      Number(decimalOne).should.be.exactly(1);
     });
 
     it('should play nicely with JSON.stringify()', function() {
-      var Decimal40 = decimalFactory(adapter);
+      var decimalOne = new Decimal('1');
+      var stringified = JSON.stringify([decimalOne]);
 
-      Decimal40.setPrecision(40);
+      stringified.should.be.exactly('["1"]');
 
-      var decimalThird = new Decimal40('1').div(new Decimal40('3'));
-      var stringified = JSON.stringify([decimalThird]);
-
-      stringified.should.be.exactly('["0.3333333333333333"]');
-
-      JSON.parse(stringified, Decimal40.JSONReviver)[0].should.eql(decimalThird);
+      JSON.parse(stringified, Decimal.JSONReviver)[0].should.eql(decimalOne);
     });
   });
 });
